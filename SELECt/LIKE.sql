@@ -13,7 +13,7 @@
 -- VÍ DỤ: Name LIKE 'A%', BẤT KÌ AI CÓ TÊN XUẤT HIỆN BẰNG CHỮ Â, PHẦN CÒN LẠI LÀ GÌ KHÔNG CARE           -
 --        Name LIKE 'A_' NGƯỜI NÀO TRONG TÊN CÓ 2 CHỮ CÁI VÀ CHỮ CÁI ĐẦU TIÊN PHẢI BẤT ĐẦU BẰNG CHỮ A    -
 ----------------------------------------------------------------------------------------------------------
--- 1. TẤT CẢ NHÂN VIÊN
+-- 1. TẤT CẢ NHÂN VIÊN ra nè
 SELECT * FROM Employees
 
 -- 2. NHÂN VIÊN NÀO CÓ TÊN BẮT ĐẦU BẰNG CHỮ A
