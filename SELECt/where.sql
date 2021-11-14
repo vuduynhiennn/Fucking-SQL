@@ -78,10 +78,15 @@ SELECT * FROM Orders WHERE Freight >= 100 AND Freight <= 500 AND ShipVia = 1
 
 
 -- Để phân tách thứ tự filter
+SELECT * FROM Orders WHERE Freight >= 100 AND Freight <= 500 AND ShipVia = 1 AND ShipCity <> 'London'
 
+-- 17. liệt kê khách hàng từ Mĩ hoặc Mexico
+SELECT * FROM Customers WHERE Country = 'Mexico' AND Country = 'USA'
+SELECT * FROM Customers WHERE Country = 'Mexico' OR Country = 'USA'
 
+-- 18. liệt kê khách hàng không đến từ Mĩ hoặc Mexico
+SELECT * FROM Customers WHERE NOT(Country = 'USA' OR Country = 'Mexico')
+SELECT * FROM Customers WHERE Country != 'USA' OR Country != 'Mexico'
 
-
-
-
-
+-- 19. liệt kê các nhân viên sinh ra trong đoạn 1960 đến 1970
+SELECT * FROM Employees WHERE YEAR(BirthDate) >= 1960 AND YEAR(BirthDate) <= 1970 ORDER BY BirthDate DESC
