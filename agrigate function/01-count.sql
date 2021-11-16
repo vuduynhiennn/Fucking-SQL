@@ -77,13 +77,65 @@ SELECT * FROM Employees
 SELECT City, COUNT(City) AS[TIMES]
 FROM Employees
 GROUP BY City
-ORDER BY TIMES
 -- CHIA CITY THÀNH NHÓM XONG ĐẾM
 
+-- CHỐT HẠ: KHI XÀI HÀM GOM NHÓM, BẠN CÓ QUYỀN LIỆT KÊ TÊN CỘT LẺ Ở SELECT
+--          NHƯNG CỘT LẺ ĐÓ BẮT BUỘC PHẢI XUẤT HIỆN TRONG MỆNH ĐỀ GROUP BY
+--          ĐỂ ĐẢM BẢO LOGIC: CỘT HIỂN THỊ SỐ LƯỢNG ĐI KÈM, ĐẾM GOM THEO CỘT HIỂN THỊ MỚI LOGIC
+-- CỨ THEO CỘT CITY MÀ GOM, CỘT CITY NẰM Ở SELECT HỢP LÍ
+-- MUỐN HIỂN THỊ SỐ	LƯỢNG CỦA AI CÁI GÌ THÌ GOM NHÓM THEO CÁI GÌ
+-- IN RA MÃ NHÂN VIÊN
+-- NẾU GOM THEO KEY/PK VÔ NGHĨA VÌ KEYE HOK TRÙNG, MỖI THẰNG MỘT NHÓM, ĐẾM CÁI GÌ ?
+-- ĐẾM MÃ SỐ SV, 
+-- MÃ CHUYỂN NGÀNH ĐẾM SỐ SV CHUYÊN NGÀNH
+-- ĐẾM SỐ LƯỢNG ĐẠT ĐƯỢC ĐIỂM ĐÓ
+-- 1 London 1
+-- 2 Seatle 1
+-- 3        2
+
+-- 4. THÀNH PHỐ NÀO CÓ TỪ 2 NHÂN VIÊN TRỞ LÊN
+-- 9. CÁC THÀNH PHỐ CÓ BAO NHIÊU NHÂN VIÊN
+-- 10. FILDER SAU ĐẾM HAY WHERE SAU ĐẾM, WHERE SAU KHI ĐÃ GOM NHÓM, ĐÃ AGGREGATE, HAVING...
+
+SELECT City, 
+	   COUNT(*) 
+	   FROM Employees
+	   GROUP BY City 
+	   HAVING COUNT(*) >= 2
+                                                           
+-- 11. TRONG 2TP London Seattle THÀNH PHỐ NÀO CÓ 3 NHÂN VIÊN 
+SELECT City, COUNT(*)   
+FROM Employees
+WHERE City IN ('London', 'Seattle')
+GROUP BY City
+HAVING COUNT(*) >= 3
 
 
+-- 13. ĐẾM SỐ LƯỢNG ĐƠN HÀNG
+SELECT COUNT(*) 
+FROM Orders
 
+-- 12.1 NƯỚC MĨ CÓ BAO NHIÊU ĐƠN HÀNG
+SELECT COUNT(*) 
+FROM Orders
+WHERE ShipCountry = 'USA'
 
+-- 12.2 MĨ ANH PHÁP MỖI QUỐC GIA CÓ BAO NHIÊU ĐƠN HÀNG
+SELECT ShipCountry, COUNT(*) AS [TIMES] 
+FROM Orders
+WHERE ShipCountry IN ('UK', 'USA', 'FRANCE')
+GROUP BY ShipCountry
+
+-- 12.3 ĐẾM QUỐC GIA NÀO CÓ NHIỀU ĐƠN HÀNG NHẤT
+
+-- 12.4 TRONG 3 QUỐC GIA ANH PHÁP MĨ QUỐC GIA NÀO CÓ 100 ĐƠN HÀNG TRỞ LÊN
+SELECT ShipCountry, COUNT(*)
+FROM Orders
+WHERE ShipCountry IN ('USA', 'UK', 'France')
+GROUP BY ShipCountry
+HAVING COUNT(*) >= 100
+
+-- 12.5 
 
 
 
