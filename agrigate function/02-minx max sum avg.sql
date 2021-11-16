@@ -41,8 +41,25 @@ SELECT *
 FROM Orders
 WHERE Freight = (SELECT MAX(Freight) FROM Orders)
 
+-- 5. TÍNH TỔNG KHỐI LƯỢNG CÁC ĐƠN HÀNG ĐÃ VẬN CHUYỂN
+-- 830 ĐƠN HÀNG
+SELECT * 
+FROM Orders
+
+SELECT SUM(Freight)
+FROM Orders
 
 
+-- 6. TÍNH TRUNG BÌNH CÁC ĐƠN HÀNG NẶNG BAO NHIÊU
+SELECT AVG(Freight)
+FROM Orders
+
+-- 7. LIỆT KÊ CÁC ĐƠN HÀNG CÓ TRỌNG LƯỢNG NẶNG HƠN TRỌNG LƯỢNG TRUNG BÌNH CỦA TẤT CẢ
+SELECT COUNT(*) 
+FROM Orders
+WHERE Freight > ALL (SELECT AVG(Freight) FROM Orders)
+
+-- 8. CÓ BAO NHIÊU ĐƠN HÀNG CÓ TRỌNG LƯỢNG NẶNG HƠN TRỌNG LƯỢNG TRUNG BÌNH CỦA TẤT CẢ
 
 
 
