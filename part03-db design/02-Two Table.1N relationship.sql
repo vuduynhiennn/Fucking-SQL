@@ -1,0 +1,39 @@
+﻿CREATE DATABASE DBDESIGN_oneMany
+
+USE DBDESIGN_oneMany
+
+CREATE TABLE Student (
+	StudentID CHAR(8) NOT NULL,
+	LastName NVARCHAR(40),
+	FirstName NVARCHAR(30),
+	DOB DATETIME,
+	Address NVARCHAR(30),
+	MID CHAR(2) -- TÊN CỘT KHÓA NGOẠI KHÔNG CẦN TRÙNG VỚI TÊN BẢN GỐC, NHƯNG BẮT BUỘC PHẢI CHUNG KIỂU DỮ LIỆU, CẦN THAM CHIẾU DATA THÔI 
+)
+
+
+
+INSERT INTO Student 
+VALUES 
+('SE1', N'NGUYỄN', N'DUY', NULL, NULL, 'SE'),
+('SE1', N'NGUYỄN', N'DUY', NULL, NULL, 'SE'),
+('SE1', N'NGUYỄN', N'DUY', NULL, NULL, 'SE')
+
+DROP TABLE Student
+
+CREATE TABLE MajorV1 (
+	MajorID CHAR(2) PRIMARY KEY, -- MẶC ĐỊNH DBE SẼ TỰ TẠO TÊN RÀNG BUỘC
+	MajorName NVARCHAR(40) NOT NULL
+)
+
+-- CHÈN DATA, MUA QUẦN ÁO BỎ VÔ CÁI TỦ
+INSERT INTO MajorV1 
+VALUES 
+('SE', N'Software Engineering'), 
+('IA', N'An toàn thông tin')
+
+SELECT * FROM MajorV1
+SELECT * FROM Student
+
+
+

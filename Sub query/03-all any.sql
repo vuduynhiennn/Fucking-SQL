@@ -68,6 +68,13 @@ ORDER BY AGE
 
 -- 7. CÂY PHÂN CẤP 
 
+-- 8. LIỆT KÊ CÁC ĐƠN HÀNG CỦA KHÁCH HÀNG CÓ MÃ SỐ VINET
+SELECT COUNT(*) AS [Times]  
+FROM Orders 
+WHERE CustomerID = 'VINET'
+
+-- 9. CHIA THEO MÃ KHÁCH HÀNG
+
 
 
 
